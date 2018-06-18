@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { InfoPage } from '../info/info';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { ApiProvider } from '../../providers/api';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class ScanPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private barcodeScanner: BarcodeScanner
+    private barcodeScanner: BarcodeScanner,
+    private api: ApiProvider
   ) {
   }
 
@@ -26,10 +28,23 @@ export class ScanPage {
   }
 
   public retrieveQR() {
-    this.navCtrl.push(InfoPage, {
-      'id': this.code,
-      'txt': 'fsdfdgfdgs fdg \ns ddiadfjasndvad\nfsdfdgfdgs fdg \ns ddiadfjasndvad\n'
-    });
+    this.erro = '';
+    if (this.code != '') {
+
+      this.api.receiveText(this.code).subscribe(
+        res => {
+          if (res)
+            this.navCtrl.push(InfoPage, {
+              'id': this.code,
+              'txt': res.value
+            });
+        },
+        err => this.erro = err
+      );
+    
+    }
+    else
+      this.erro = 'Campo vazio!';
   }
 
   public readQR() {

@@ -6,7 +6,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ApiProvider {
 
-  url_base = '...kressin...';
+  urlBase = 'http://appsmoveis.kressin.com.br/ws/';
+  jsonHeader = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
   constructor(public http: Http) {
     // console.log('Hello ApiProvider Provider');
@@ -14,12 +15,10 @@ export class ApiProvider {
 
   public sendText(text: string) {
 
-    let endPoint = '...';
-    let obj = {
-      'text': text
-    };
+    let endPoint = 'dados.php';
+    let obj = { 'type': 'txt', 'value': text };
 
-    return this.http.post(this.url_base + endPoint, obj).map(
+    return this.http.post(this.urlBase + endPoint, obj, this.jsonHeader).map(
       (res: Response) => res.json(),
       err => err
     )
@@ -27,9 +26,9 @@ export class ApiProvider {
 
   public receiveText(id: string) {
 
-    let endPoint = '...';
-    
-    return this.http.get(this.url_base + endPoint + 'id=' + id).map(
+    let endPoint = 'dados.php';
+
+    return this.http.get(this.urlBase + endPoint + '?id=' + id).map(
       (res: Response) => res.json(),
       err => err
     )

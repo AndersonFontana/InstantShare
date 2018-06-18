@@ -9,10 +9,11 @@ import { HomePage } from '../pages/home/home';
 import { NewPage } from '../pages/new/new';
 import { ScanPage } from '../pages/scan/scan';
 import { InfoPage } from '../pages/info/info';
+import { ApiProvider } from '../providers/api';
 
 import { Clipboard } from '@ionic-native/clipboard';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { ApiProvider } from '../providers/api';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ApiProvider } from '../providers/api';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
