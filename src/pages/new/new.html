@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Create new Share</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <ion-row>
+    <ion-col col-12>
+      <ion-textarea [(ngModel)]="txtArea" #tAreaInput id="tAreaInput" rows="20" placeholder="Your message here..."></ion-textarea>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="error != ''">
+    <ion-col col-12>
+      <p text-center>{{ error }}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-12>
+      <button ion-button icon-end block round [disabled]="txtArea === ''" (click)="createNewQR()">
+        Next
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

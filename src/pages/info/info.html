@@ -1,0 +1,44 @@
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-row>
+    <ion-col col-12>
+      <div class="img">
+        <img *ngIf="id" class="img" [src]="'https://api.qrserver.com/v1/create-qr-code/?size=350x350&data='+id" alt="QR Code">
+      </div>
+    </ion-col>
+
+    <ion-col col-12>
+      <div class="id">
+        <pre text-center>{{id}}</pre>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-12>
+      <div class="txt">
+        <pre>{{txt}}</pre>
+      </div>
+      <button ion-button clear round block color="secondary" (click)="copy2ClipBoard()">
+        Copy to clipboard
+      </button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+<ion-footer>
+  <button ion-button clear round block ion-button icon-start color="primary" (click)="go2Home()">
+    <ion-icon name="home"></ion-icon>
+    Home
+  </button>
+</ion-footer>

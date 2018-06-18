@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Scanear</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-row>
+    <ion-col col-12>
+      <ion-item>
+        <ion-label>Code:</ion-label>
+        <ion-input type="text" [(ngModel)]="code"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="erro != ''">
+    <ion-col col-12>
+      <p text-center>{{ erro }}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <button class="options" color="primary" clear large ion-button icon-start (click)="readQR()">
+        <ion-icon name="qr-scanner"></ion-icon>
+        Camera
+      </button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-12>
+      <button ion-button icon-end block round [disabled]="code === ''" (click)="retrieveQR()">
+        Next
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

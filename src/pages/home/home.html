@@ -1,14 +1,22 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <ion-row>
+    <ion-col>
+      <button class="options" color="dark" clear large ion-button icon-start (click)="newQR()">
+        <ion-icon name="add"></ion-icon>
+        New QR
+      </button>
+    </ion-col>
+    <ion-col>
+      <button class="options" color="dark" clear large ion-button icon-start (click)="readQR()">
+        <ion-icon name="qr-scanner"></ion-icon>
+        Read QR
+      </button>
+    </ion-col>
+  </ion-row>
+  
+  <!-- <ion-footer>
+    <p text-center>Desenvolvido para a disciplina de Desenvolvimento de Aplicativos Móveis</p>
+  </ion-footer> -->
+
 </ion-content>

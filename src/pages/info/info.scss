@@ -1,0 +1,22 @@
+page-info {
+    ion-content {
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+    }
+
+    div.img > img {
+        margin: auto;
+        display: block;
+        max-width: 350px;
+        width: 100%;
+    }
+
+    div.txt {
+        background-color: #eee;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        padding: 10px;
+    }
+}
