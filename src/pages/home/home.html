@@ -1,17 +1,30 @@
+
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-buttons start>
+          <button ion-button icon-only (click)="openMenu()">
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-buttons>
+    
+        <ion-title>InstantShare</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
 <ion-content padding>
 
   <ion-row>
 
     <ion-col>
-      <button class="options" color="dark" clear large ion-button icon-start (click)="newQR()">
-        <ion-icon name="add"></ion-icon>
+      <button class="options" color="primary" clear large ion-button icon-start (click)="newQR()">
+        <ion-icon name="md-add"></ion-icon>
         New QR
       </button>
     </ion-col>
 
     <ion-col>
-      <button class="options" color="dark" clear large ion-button icon-start (click)="readQR()">
-        <ion-icon name="qr-scanner"></ion-icon>
+      <button class="options" color="primary" clear large ion-button icon-start (click)="readQR()">
+        <ion-icon name="md-qr-scanner"></ion-icon>
         Read QR
       </button>
     </ion-col>

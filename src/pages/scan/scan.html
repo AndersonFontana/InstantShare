@@ -20,14 +20,14 @@
 
   <ion-row *ngIf="erro != ''">
     <ion-col col-12>
-      <p text-center style="color: #f53d3d">{{ erro }}</p>
+      <p class="error_txt" >{{ erro }}</p>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col>
       <button class="options" color="primary" clear large ion-button icon-start (click)="readQR()">
-        <ion-icon name="qr-scanner"></ion-icon>
+        <ion-icon name="md-qr-scanner"></ion-icon>
         Camera
       </button>
     </ion-col>
