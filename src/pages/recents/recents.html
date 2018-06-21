@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Recents</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <h2 text-center class="grayColor" *ngIf="!recentQRs">List empty!</h2>
+
+  <ion-list>
+    <ion-item text-wrap *ngFor="let QR of recentQRs" (click)="openQR(QR)">
+      <h2>{{ QR.txt }}</h2>
+      <p>{{ QR.id }}</p>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

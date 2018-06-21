@@ -14,6 +14,8 @@ import { ApiProvider } from '../providers/api';
 import { Clipboard } from '@ionic-native/clipboard';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { HttpModule } from '@angular/http';
+import { IonicStorageModule } from '@ionic/storage';
+import { RecentsPage } from '../pages/recents/recents';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { HttpModule } from '@angular/http';
     HomePage,
     NewPage,
     ScanPage,
-    InfoPage
+    InfoPage,
+    RecentsPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -34,7 +38,8 @@ import { HttpModule } from '@angular/http';
     HomePage,
     NewPage,
     ScanPage,
-    InfoPage
+    InfoPage,
+    RecentsPage
   ],
   providers: [
     StatusBar,

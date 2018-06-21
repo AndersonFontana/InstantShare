@@ -1,16 +1,28 @@
 <ion-content padding>
 
   <ion-row>
+
     <ion-col>
       <button class="options" color="dark" clear large ion-button icon-start (click)="newQR()">
         <ion-icon name="add"></ion-icon>
         New QR
       </button>
     </ion-col>
+
     <ion-col>
       <button class="options" color="dark" clear large ion-button icon-start (click)="readQR()">
         <ion-icon name="qr-scanner"></ion-icon>
         Read QR
+      </button>
+    </ion-col>
+
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <button class="options" color="dark" clear large ion-button icon-start (click)="showRecents()">
+        <ion-icon name="time"></ion-icon>
+        Recents
       </button>
     </ion-col>
   </ion-row>

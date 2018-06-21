@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Clipboard } from '@ionic-native/clipboard';
+import { ApiProvider } from '../../providers/api';
 
 
 @Component({
@@ -9,24 +10,25 @@ import { Clipboard } from '@ionic-native/clipboard';
 })
 export class InfoPage {
 
-  id: string;
-  txt: string;
+  QR = {id: '', txt: ''};
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private clipboard: Clipboard
+    private clipboard: Clipboard,
+    private api: ApiProvider
   ) {
-    this.id  = this.navParams.get('id');
-    this.txt = this.navParams.get('txt');
+    this.QR.id  = this.navParams.get('id');
+    this.QR.txt = this.navParams.get('txt');
+    this.api.add2Recents(this.QR);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad InfoPage');
+    // console.log('ionViewDidLoad InfoPage');
   }
 
   copy2ClipBoard() {
-    this.clipboard.copy(this.txt);
+    this.clipboard.copy(this.QR.txt);
   }
 
   go2Home() {

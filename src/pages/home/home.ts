@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+
 import { NewPage } from '../new/new';
 import { ScanPage } from '../scan/scan';
+import { RecentsPage } from '../recents/recents';
 
 @Component({
   selector: 'page-home',
@@ -20,6 +22,10 @@ export class HomePage {
 
   public readQR() {
     this.navCtrl.push(ScanPage);
+  }
+
+  public showRecents() {
+    this.navCtrl.push(RecentsPage);
   }
 
 

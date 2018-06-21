@@ -1,5 +1,6 @@
 import { Http, Response, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
 
 import 'rxjs/add/operator/map';
 
@@ -9,7 +10,10 @@ export class ApiProvider {
   urlBase = 'http://appsmoveis.kressin.com.br/ws/';
   jsonHeader = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
-  constructor(public http: Http) {
+  constructor(
+    public http: Http,
+    private storage: Storage
+  ) {
     // console.log('Hello ApiProvider Provider');
   }
 
@@ -32,6 +36,30 @@ export class ApiProvider {
       (res: Response) => res.json(),
       err => err
     )
+  }
+
+  public add2Recents(item: { id: string, txt: string }) {
+    let newList = [];
+    newList.push(item);
+
+    if (item && item.txt.length > 30)
+      item.txt = item.txt.slice(0, 27) + "...";
+
+    this.storage.get('recentQRs').then((val) => {
+      let recentQRs = val || [];
+      let maxListSize = 20;
+      recentQRs.forEach(QR => {
+        if (QR.id != item.id && --maxListSize > 0) // manter a lista com 'maxListSize' elementos
+          newList.push(QR);
+      });
+
+      this.storage.set('recentQRs', newList);
+    }).catch(
+      err => this.storage.set('recentQRs', newList)
+    );
+  }
+  public getRecents() {
+    return this.storage.get('recentQRs');
   }
 
 }
