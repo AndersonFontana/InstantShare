@@ -32,4 +32,11 @@ export class RecentsPage {
     });
   }
 
+  splice (item) {
+    if (item && item.length > 30)
+      return item.slice(0, 27) + "...";
+    else
+      return item;
+  }
+
 }

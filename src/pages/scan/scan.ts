@@ -50,7 +50,10 @@ export class ScanPage {
   public readQR() {
 
     this.barcodeScanner.scan().then(
-      barcodeData => this.code = barcodeData.text
+      barcodeData => {
+        console.log(barcodeData);
+        
+        this.code = barcodeData.text}
     ).catch(
       err => this.erro = err
     );

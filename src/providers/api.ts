@@ -42,9 +42,6 @@ export class ApiProvider {
     let newList = [];
     newList.push(item);
 
-    if (item && item.txt.length > 30)
-      item.txt = item.txt.slice(0, 27) + "...";
-
     this.storage.get('recentQRs').then((val) => {
       let recentQRs = val || [];
       let maxListSize = 20;

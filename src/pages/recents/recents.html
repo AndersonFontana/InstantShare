@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="secondary">
     <ion-title>Recents</ion-title>
   </ion-navbar>
 
@@ -13,7 +13,7 @@
 
   <ion-list>
     <ion-item text-wrap *ngFor="let QR of recentQRs" (click)="openQR(QR)">
-      <h2>{{ QR.txt }}</h2>
+      <h2>{{ splice(QR.txt) }}</h2>
       <p>{{ QR.id }}</p>
     </ion-item>
   </ion-list>

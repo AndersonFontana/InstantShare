@@ -1,0 +1,13 @@
+{
+  "name": "Instant Share",
+  "short_name": "InstantShare",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "icons": [{
+    "src": "assets/imgs/logo.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#dcdcdc",
+  "theme_color": "#fc9303"
+}
